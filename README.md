@@ -6,5 +6,5 @@
 3. Затем переключаем версию node.js с помощью команды nvm use node_version, где node_version=18.17.1
 
 После клонирования проекта выпронить:
-npm i
-npm start
+1) npm i
+2) npm start

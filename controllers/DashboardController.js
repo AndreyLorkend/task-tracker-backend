@@ -29,6 +29,15 @@ class DashboardController {
     }
   }
 
+  async changeDashboardColumnsIndex(req, res) {
+    try {
+      const columns = await DashboardService.changeDashboardColumnsIndex(req.body)
+      return res.json(columns)
+    } catch (error) {
+      res.status(500).json(error)
+    }
+  }
+
   // Dashboard cards
   async createDashboardCard(req, res) {
     try {

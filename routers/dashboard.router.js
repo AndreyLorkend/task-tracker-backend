@@ -7,6 +7,7 @@ const dashboardRouter = new Router()
 dashboardRouter.post('/dashboard/columns', DashboardController.createDashboardColumn)
 dashboardRouter.get('/dashboard/columns', DashboardController.getAllDashboardColumns)
 dashboardRouter.delete('/dashboard/columns/:id', DashboardController.deleteDashboardColumn)
+dashboardRouter.post('/dashboard/columns/change/index', DashboardController.changeDashboardColumnsIndex)
 // Dashboard cards
 dashboardRouter.post('/dashboard/cards', DashboardController.createDashboardCard)
 dashboardRouter.get('/dashboard/cards', DashboardController.getAllDashboardCards)

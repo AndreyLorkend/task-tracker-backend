@@ -12,5 +12,6 @@ dashboardRouter.post('/dashboard/columns/change/index', DashboardController.chan
 dashboardRouter.post('/dashboard/cards', DashboardController.createDashboardCard)
 dashboardRouter.get('/dashboard/cards', DashboardController.getAllDashboardCards)
 dashboardRouter.delete('/dashboard/cards/:id', DashboardController.deleteDashboardCard)
+dashboardRouter.post('/dashboard/cards/change/index/:columnId', DashboardController.changeDashboardCardsIndex)
 
 export default dashboardRouter

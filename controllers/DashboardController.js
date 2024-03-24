@@ -66,6 +66,15 @@ class DashboardController {
     }
   }
 
+  async changeDashboardCardsIndex(req, res) {
+    try {
+      const cards = await DashboardService
+      return res.json(cards)
+    } catch (error) {
+      res.status(500).json(error)
+    }
+  }
+
 }
 
 export default new DashboardController()

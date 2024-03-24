@@ -64,6 +64,17 @@ class DashboardService {
     const card = await DashboardCard.findByIdAndDelete(id)
     return card
   }
+
+  // body: [{index, _id}]
+  async changeDashboardCardsIndex(columnId, body) {
+    if (!columnId) {
+      throw new Error('не указан ID колонки')
+    }
+    body.forEach(async pair => {
+      await DashboardCard.findOneAndUpdate({ _id: pair._id }, { index: pair.index, columnId: columndId })
+    })
+    return this.getAllDashboardCards()
+  }
 }
 
 export default new DashboardService()

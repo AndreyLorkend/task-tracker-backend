@@ -38,6 +38,15 @@ class DashboardController {
     }
   }
 
+  async editDashboardColumn(req, res) {
+    try {
+      const column = await DashboardService.editDashboardColumn(req.body)
+      return res.json(column)
+    } catch (error) {
+      res.status(500).json(error)
+    }
+  }
+
   // Dashboard cards
   async createDashboardCard(req, res) {
     try {
@@ -68,8 +77,20 @@ class DashboardController {
 
   async changeDashboardCardsIndex(req, res) {
     try {
-      const cards = await DashboardService
+      console.log("========")
+      console.log(req.params)
+      console.log("========")
+      const cards = await DashboardService.changeDashboardCardsIndex(req.params.columnId, req.body)
       return res.json(cards)
+    } catch (error) {
+      res.status(500).json(error)
+    }
+  }
+
+  async editDashboardCard(req, res) {
+    try {
+      const card = await DashboardService.editDashboardCard(req.body)
+      return res.json(card)
     } catch (error) {
       res.status(500).json(error)
     }

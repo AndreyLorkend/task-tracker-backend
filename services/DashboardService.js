@@ -5,7 +5,12 @@ class DashboardService {
   // Dashboard columns
   async createDashboardColumn(dashboardColumn) {
     const allCollumns = await DashboardColumn.find({})
-    const createdColumn = await DashboardColumn.create({ ...dashboardColumn, index: allCollumns?.length ?? 0 })
+    const createdColumn = await DashboardColumn.create({
+      ...dashboardColumn,
+      index: allCollumns?.length ?? 0,
+      createdAt: new Date().getTime(),
+      updatedAt: new Date().getTime()
+    })
     return createdColumn
   }
 
@@ -38,7 +43,12 @@ class DashboardService {
 
   // Dashboard cards
   async createDashboardCard(dashboardCard) {
-    const createdCard = await DashboardCard.create(dashboardCard)
+    const createdCard = await DashboardCard.create({
+      ...dashboardCard,
+      createdAt: new Date().getTime(),
+      updatedAt: new Date().getTime()
+
+    })
     return createdCard
   }
 
